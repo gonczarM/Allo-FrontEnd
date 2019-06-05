@@ -42,8 +42,8 @@ class Conversation extends Component{
 		console.log(parsedResponse);
 		if(parsedResponse.status === 200){
 			this.setState({
-			messages: [...this.state.messages, parsedResponse.message]
-		})
+				messages: [...this.state.messages, parsedResponse.message]
+			})
 		}
 	}
 
