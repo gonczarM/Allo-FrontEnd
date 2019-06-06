@@ -22,7 +22,7 @@ class Conversation extends Component{
 	}
 
 	getMessages = async () => {
-		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/convos/convo/5cf94135579ea1676e27ecc1', {
+		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/convos/convo/${this.props.convoId}`, {
 			credentials: 'include'
 		})
 		console.log(messagesResponse);
@@ -42,7 +42,7 @@ class Conversation extends Component{
 
 	createMessage = async (formData) => {
 		console.log(formData);
-		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/messages/5cf94135579ea1676e27ecc1', {
+		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/messages/${this.props.convoId}`, {
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(formData),
@@ -62,6 +62,7 @@ class Conversation extends Component{
 	}
 
 	render(){
+		console.log(this.props.convoId);
 		console.log(this.state.messages, 'state');
 		const chat = this.state.messages.map((message) => {
 			return <p key={message._id}>{message.text} {message.translatedText}</p>

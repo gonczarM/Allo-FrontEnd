@@ -7,6 +7,8 @@ class App extends React.Component {
 	constructor(){
 		super()
 		this.state = {
+			convoId: '',
+			showConvo: false,
 			loggedIn: false,
 			user: ''
 		}
@@ -53,9 +55,16 @@ class App extends React.Component {
 		}
 	}
 
+	convoToShow(id){
+		this.setState({
+			convoId: id,
+			showConvo: true
+		})
+	}
+
 	render(){
-		let conversationList = <ConvosList/>
-		let convo = <Conversation/>
+		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)}/>
+		let convo;
 		let auth;
 		if(!this.state.loggedIn){
 			convo = ''
@@ -64,6 +73,11 @@ class App extends React.Component {
 				handleLogin={this.handleLogin}
 				handleRegister={this.handleRegister}
 			/>
+		}
+		else if(this.state.showConvo){
+			conversationList = ''
+			auth = ''
+			convo = <Conversation convoId={this.state.convoId}/>
 		}
 	  return (
 	    <div className="App">
