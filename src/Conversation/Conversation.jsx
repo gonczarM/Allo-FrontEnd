@@ -7,8 +7,24 @@ class Conversation extends Component{
 	constructor(){
 		super()
 		this.state = {
-			messages: []
+			messages: [],
+			convoId: ''
 		}
+	}
+
+	static getDerivedStateFromProps(nextProps, prevState){
+		if(nextProps.convoId!==prevState.convoId){
+	     	return { convoId: nextProps.convoId};
+	  	}
+	  	else return null;
+	}
+
+	componentDidUpdate(prevProps){
+		if(prevProps.convoId!==this.props.convoId){
+			let convoId = this.state.convoId
+	    this.setState({convoId});
+	    this.getMessages();
+  	}
 	}
 
 	componentDidMount(){
@@ -22,7 +38,7 @@ class Conversation extends Component{
 	}
 
 	getMessages = async () => {
-		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/convos/convo/${this.props.convoId}`, {
+		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/convos/convo/${this.state.convoId}`, {
 			credentials: 'include'
 		})
 		console.log(messagesResponse);
@@ -42,7 +58,7 @@ class Conversation extends Component{
 
 	createMessage = async (formData) => {
 		console.log(formData);
-		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/messages/${this.props.convoId}`, {
+		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/messages/${this.state.convoId}`, {
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(formData),

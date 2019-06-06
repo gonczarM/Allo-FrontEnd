@@ -9,8 +9,7 @@ class App extends React.Component {
 		this.state = {
 			convoId: '',
 			showConvo: false,
-			loggedIn: false,
-			user: ''
+			loggedIn: false
 		}
 	}
 
@@ -29,8 +28,7 @@ class App extends React.Component {
 		console.log(parsedResponse);
 		if(parsedResponse.status === 200){
 			this.setState({
-				loggedIn: true,
-				user: parsedResponse.user
+				loggedIn: true
 			})
 		}
 	}
@@ -49,8 +47,7 @@ class App extends React.Component {
 		console.log(parsedResponse);
 		if(parsedResponse.status === 200){
 			this.setState({
-				loggedIn: true,
-				user: parsedResponse.user
+				loggedIn: true
 			})
 		}
 	}
@@ -62,8 +59,14 @@ class App extends React.Component {
 		})
 	}
 
+	userSearch(){
+		this.setState({
+			showConvo: false
+		})
+	}
+
 	render(){
-		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)}/>
+		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)} userSearch={this.userSearch.bind(this)}/>
 		let convo;
 		let auth;
 		if(!this.state.loggedIn){
@@ -75,7 +78,6 @@ class App extends React.Component {
 			/>
 		}
 		else if(this.state.showConvo){
-			conversationList = ''
 			auth = ''
 			convo = <Conversation convoId={this.state.convoId}/>
 		}

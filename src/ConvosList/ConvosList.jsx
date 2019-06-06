@@ -1,10 +1,12 @@
 import React from 'react';
+import SearchUsers from './SearchUsers/SearchUsers'
 
 class ConvosList extends React.Component {
 	constructor(){
 		super()
 		this.state = {
-			conversations: []
+			conversations: [],
+			showCreateConvo: false
 		}
 	}
 
@@ -26,14 +28,28 @@ class ConvosList extends React.Component {
 		}
 	}
 
+	createConvo = () => {
+		this.props.userSearch()
+		this.setState({
+			showCreateConvo: true
+		})
+	}
+
 	render(){
-		console.log(this.state.conversations);
+		console.log(this.props);
+		console.log(this.state);
 		const convos = this.state.conversations.map((convo) => {
-			return <button key={convo._id} onClick={this.props.convoToShow.bind(null, convo._id)}> {convo.users[0].username}</button>
+			return <button key={convo._id} onClick={this.props.convoToShow.bind(null, convo._id)}> {convo.users[0].username} {convo.users[1].username}</button>
 		})
 		return(
 			<div>
+				<button onClick={this.createConvo}>Create conversation</button><br/>
 				{convos}
+				{this.state.showCreateConvo ?
+					<SearchUsers/>
+					:
+					null
+				}
 			</div>
 		)
 	}
