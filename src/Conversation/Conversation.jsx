@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import NewMessage from './NewMessage/NewMessage'
+import openSocket from 'socket.io-client'
+export const socket = openSocket('http://localhost:9021')
 
 class Conversation extends Component{
 	constructor(){
@@ -11,6 +13,12 @@ class Conversation extends Component{
 
 	componentDidMount(){
 		this.getMessages()
+		socket.on('messages', (msg) => {
+			console.log(msg, 'socket mount');
+			this.setState({
+				messages: msg
+			})
+		})
 	}
 
 	getMessages = async () => {
@@ -25,6 +33,11 @@ class Conversation extends Component{
 				messages: parsedResponse.convo.messages
 			})
 		}
+	}
+
+	sendSocket(){
+		socket.emit('messsages', this.state.messages)
+		console.log(socket.emit('messages', this.state.messages));
 	}
 
 	createMessage = async (formData) => {
@@ -45,16 +58,17 @@ class Conversation extends Component{
 				messages: [...this.state.messages, parsedResponse.message]
 			})
 		}
+		this.sendSocket()
 	}
 
 	render(){
-		console.log(this.state.messages);
-		const messages = this.state.messages.map((message) => {
+		console.log(this.state.messages, 'state');
+		const chat = this.state.messages.map((message) => {
 			return <p key={message._id}>{message.text} {message.translatedText}</p>
 		})
 		return(
 			<div>
-				{messages}
+				<div>{chat}</div>
 				<NewMessage createMessage={this.createMessage}></NewMessage>
 			</div>
 		)
