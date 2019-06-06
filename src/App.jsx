@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import AuthGateway from './AuthGateway/AuthGateway'
 import Conversation from './Conversation/Conversation'
 
@@ -25,7 +24,12 @@ class App extends React.Component {
 		console.log(registerResponse);
 		const parsedResponse = await registerResponse.json()
 		console.log(parsedResponse);
-		// change the state
+		if(parsedResponse.status === 200){
+			this.setState({
+				loggedIn: true,
+				user: parsedResponse.user
+			})
+		}
 	}
 
 	handleLogin = async (formData) => {

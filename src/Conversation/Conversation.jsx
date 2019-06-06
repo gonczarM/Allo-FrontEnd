@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import NewMessage from './NewMessage/NewMessage'
 import openSocket from 'socket.io-client'
-export const socket = openSocket('http://localhost:9021')
+export const socket = openSocket(process.env.REACT_APP_BACKEND_URL)
 
 class Conversation extends Component{
 	constructor(){
@@ -14,7 +14,6 @@ class Conversation extends Component{
 	componentDidMount(){
 		this.getMessages()
 		socket.on('messages', (msg) => {
-			console.log(msg, 'socket mount');
 			this.setState({
 				messages: msg
 			})

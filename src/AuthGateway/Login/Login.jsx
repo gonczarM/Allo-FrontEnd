@@ -6,15 +6,15 @@ function Login({toggleLogin, handleLogin}){
 
 	return(
 		<div>
-			<button onClick={toggleLogin}>
-			New User? Register Here
+			New User? <button onClick={toggleLogin}>
+			Register Here
 			</button>
 			<form onSubmit={(event) => {
 				event.preventDefault()
 				handleLogin({username, password})
 			}}>
-				<input type='text' onChange={e => setUsername(e.target.value)}/>
-				<input type='password' onChange={e => setPassword(e.target.value)}/>
+				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
+				Password<input type='password' onChange={e => setPassword(e.target.value)}/><br/>
 				<button value='Login'>Login</button>
 			</form>
 		</div>

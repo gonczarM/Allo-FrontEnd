@@ -11,20 +11,20 @@ function Register({toggleLogin, handleRegister}){
 
 	return(
 		<div>
-			<button onClick={toggleLogin}>
-			Have an Account? Login Here
+			Have an Account? <button onClick={toggleLogin}>
+			Login Here
 			</button>
 			<form onSubmit={(event) => {
 				event.preventDefault()
 				handleRegister({username, password, language, location, about, first_name, last_name})
 			}}>
-				<input type='text' onChange={e => setUsername(e.target.value)}/>
-				<input type='password' onChange={e => setPassword(e.target.value)}/>
-				<input type='text' onChange={e => setLanguage(e.target.value)}/>
-				<input type='text' onChange={e => setLocation(e.target.value)}/>
-				<input type='text' onChange={e => setAbout(e.target.value)}/>
-				<input type='text' onChange={e => setFirstName(e.target.value)}/>
-				<input type='text' onChange={e => setLastName(e.target.value)}/>
+				First Name<input type='text' onChange={e => setFirstName(e.target.value)}/><br/>
+				Last Name<input type='text' onChange={e => setLastName(e.target.value)}/><br/>
+				Language<input type='text' onChange={e => setLanguage(e.target.value)}/><br/>
+				Location<input type='text' onChange={e => setLocation(e.target.value)}/><br/>
+				About<input type='text' onChange={e => setAbout(e.target.value)}/><br/>
+				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
+				Password<input type='password' onChange={e => setPassword(e.target.value)}/><br/>
 				<button value='Register'>Register</button>
 			</form>
 		</div>
