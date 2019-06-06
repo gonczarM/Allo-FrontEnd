@@ -14,6 +14,7 @@ class Conversation extends Component{
 	componentDidMount(){
 		this.getMessages()
 		socket.on('messages', (msg) => {
+			console.log('messages reiceved from server');
 			this.setState({
 				messages: msg
 			})
@@ -21,7 +22,7 @@ class Conversation extends Component{
 	}
 
 	getMessages = async () => {
-		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/convos/convo/5cf7f297cce6755aca254d80', {
+		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/convos/convo/5cf94135579ea1676e27ecc1', {
 			credentials: 'include'
 		})
 		console.log(messagesResponse);
@@ -35,13 +36,13 @@ class Conversation extends Component{
 	}
 
 	sendSocket(){
-		socket.emit('messsages', this.state.messages)
-		console.log(socket.emit('messages', this.state.messages));
+		socket.emit('messages', this.state.messages);
+		console.log('sending messages from client');
 	}
 
 	createMessage = async (formData) => {
 		console.log(formData);
-		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/messages/5cf7f297cce6755aca254d80', {
+		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/messages/5cf94135579ea1676e27ecc1', {
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(formData),
@@ -67,7 +68,7 @@ class Conversation extends Component{
 		})
 		return(
 			<div>
-				<div>{chat}</div>
+				{chat}
 				<NewMessage createMessage={this.createMessage}></NewMessage>
 			</div>
 		)

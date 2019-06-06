@@ -1,6 +1,7 @@
 import React from 'react';
 import AuthGateway from './AuthGateway/AuthGateway'
 import Conversation from './Conversation/Conversation'
+import ConvosList from './ConvosList/ConvosList'
 
 class App extends React.Component {
 	constructor(){
@@ -53,15 +54,22 @@ class App extends React.Component {
 	}
 
 	render(){
+		let conversationList = <ConvosList/>
+		let convo = <Conversation/>
+		let auth;
+		if(!this.state.loggedIn){
+			convo = ''
+			conversationList = ''
+			auth = <AuthGateway
+				handleLogin={this.handleLogin}
+				handleRegister={this.handleRegister}
+			/>
+		}
 	  return (
 	    <div className="App">
-	      { this.state.loggedIn ?
-	      	<Conversation>	
-	      	</Conversation>
-	      	:
-	      	<AuthGateway handleLogin={this.handleLogin} handleRegister={this.handleRegister}>
-	      	</AuthGateway>
-	      }
+	    	{conversationList}
+	    	{convo}
+	    	{auth}
 	    </div>
 	  );
 	}
