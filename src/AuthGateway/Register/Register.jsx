@@ -19,11 +19,12 @@ function Register({toggleLogin, handleRegister}){
 				handleRegister({username, password, language, location, about, first_name, last_name})
 			}}>
 				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
-				language<select onChange={e => setLanguage(e.target.value)}>
+				Choose a Prefered Language<select onChange={e => setLanguage(e.target.value)}>
 					<option value="ar">Arabic</option>
 					<option value="cs">Czech</option>
 					<option value="da">Danish</option>
 					<option value="nl">Dutch</option>
+					<option value="en">English</option>
 					<option value="fi">Finish</option>
 					<option value="fr">French</option>
 					<option value="de">German</option>
