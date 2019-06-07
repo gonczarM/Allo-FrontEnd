@@ -18,12 +18,30 @@ function Register({toggleLogin, handleRegister}){
 				event.preventDefault()
 				handleRegister({username, password, language, location, about, first_name, last_name})
 			}}>
-				First Name<input type='text' onChange={e => setFirstName(e.target.value)}/><br/>
-				Last Name<input type='text' onChange={e => setLastName(e.target.value)}/><br/>
-				Language<input type='text' onChange={e => setLanguage(e.target.value)}/><br/>
-				Location<input type='text' onChange={e => setLocation(e.target.value)}/><br/>
-				About<input type='text' onChange={e => setAbout(e.target.value)}/><br/>
 				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
+				language<select onChange={e => setLanguage(e.target.value)}>
+					<option value="ar">Arabic</option>
+					<option value="cs">Czech</option>
+					<option value="da">Danish</option>
+					<option value="nl">Dutch</option>
+					<option value="fi">Finish</option>
+					<option value="fr">French</option>
+					<option value="de">German</option>
+					<option value="hi">Hindi</option>
+					<option value="hu">Hungarian</option>
+					<option value="it">Italian</option>
+					<option value="ja">Japanese</option>
+					<option value="ko">Korean</option>
+					<option value="nb">Norwegian Bokmal</option>
+					<option value="pl">Polish</option>
+					<option value="pt">Portuguese</option>
+					<option value="ru">Russian</option>
+					<option value="zh">Simplified Chinese</option>
+					<option value="es">Spanish</option>
+					<option value="sv">Swedish</option>
+					<option value="zh-TW">Traditional Chinese</option>
+					<option value="tr">Turkish</option>
+				</select><br/>
 				Password<input type='password' onChange={e => setPassword(e.target.value)}/><br/>
 				<button value='Register'>Register</button>
 			</form>
