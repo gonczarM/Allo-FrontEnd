@@ -1,25 +1,27 @@
 import React, {useState} from 'react'
+import '../AuthGateway.css'
+import Logo from '../../Images/logo.png'
 
 function Register({toggleLogin, handleRegister}){
 	const [username, setUsername] = useState(null)
 	const [password, setPassword] = useState(null)
 	const [language, setLanguage] = useState(null)
 	const [location, setLocation] = useState(null)
-	const [about, setAbout] = useState(null)
-	const [first_name, setFirstName] = useState(null)
-	const [last_name, setLastName] = useState(null)
-
 	return(
 		<div>
-			Have an Account? <button onClick={toggleLogin}>
-			Login Here
-			</button>
-			<form onSubmit={(event) => {
+			<img src={Logo} alt='allo logo'/>
+			<form className='form' onSubmit={(event) => {
 				event.preventDefault()
-				handleRegister({username, password, language, location, about, first_name, last_name})
+				if(!language || language === 'null'){
+					console.log('nope');
+				}
+				else{
+					handleRegister({username, password, language, location})
+				}
 			}}>
-				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
-				Choose a Prefered Language<select onChange={e => setLanguage(e.target.value)}>
+				<input type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/><br/>
+				<select className='select' onChange={e => setLanguage(e.target.value)}>
+					<option value='null'>Choose your Prefered Language</option>
 					<option value="ar">Arabic</option>
 					<option value="cs">Czech</option>
 					<option value="da">Danish</option>
@@ -43,9 +45,13 @@ function Register({toggleLogin, handleRegister}){
 					<option value="zh-TW">Traditional Chinese</option>
 					<option value="tr">Turkish</option>
 				</select><br/>
-				Password<input type='password' onChange={e => setPassword(e.target.value)}/><br/>
-				<button value='Register'>Register</button>
+				<input type='text' placeholder='Location' onChange={e => setLocation(e.target.value)}/><br/>
+				<input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}/><br/>
+				<button className='loginButton' value='Register'>Register</button>
 			</form>
+			<div className='switch'>
+				<button onClick={toggleLogin}>Login Here</button>
+			</div>
 		</div>
 	)
 }

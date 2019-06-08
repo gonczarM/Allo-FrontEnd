@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Logo from '../../Images/logo.png'
 
 function Login({toggleLogin, handleLogin}){
 	const [username, setUsername] = useState(null)
@@ -6,17 +7,18 @@ function Login({toggleLogin, handleLogin}){
 
 	return(
 		<div>
-			New User? <button onClick={toggleLogin}>
-			Register Here
-			</button>
-			<form onSubmit={(event) => {
+			<img src={Logo} alt='allo logo'/>
+			<form className='form' onSubmit={(event) => {
 				event.preventDefault()
 				handleLogin({username, password})
 			}}>
-				Username<input type='text' onChange={e => setUsername(e.target.value)}/><br/>
-				Password<input type='password' onChange={e => setPassword(e.target.value)}/><br/>
+				<input type='text' placeholder='Username' onChange={e => setUsername(e.target.value)}/><br/>
+				<input type='password' placeholder='Password' onChange={e => setPassword(e.target.value)}/><br/>
 				<button value='Login'>Login</button>
 			</form>
+			<div className='switch'>
+				<button onClick={toggleLogin}>Create New Account</button>
+			</div>
 		</div>
 	)
 }

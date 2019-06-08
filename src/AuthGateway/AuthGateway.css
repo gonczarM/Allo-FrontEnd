@@ -1,0 +1,62 @@
+body{
+	background:
+		linear-gradient(
+    	rgba(0, 191, 255, .3),
+    	rgba(30, 50, 200, .6)
+		),
+		url(../Images/chicago.jpg); 
+	background-repeat: no-repeat;
+	background-size: cover;
+  background-position: center;
+}
+
+img{
+	height: 400px;
+	display: block;
+	margin: 0 auto;
+}
+
+.form{
+	margin: 0 auto;
+	margin-bottom: 30px;
+	width: 400px;
+	padding: 20px 0;
+	border-radius: 10px;
+}
+
+.form input, .form select, .form button, .form option{
+	display: block;
+	margin: 10px auto;
+	border-radius: 10px;
+	text-align: center;
+	border: none;
+	padding: 7px 50px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
+}
+
+.switch{
+	text-align: center;
+	margin-bottom: 50px;
+	color: white;
+}
+
+.form button{
+	background-color: rgb(20,20,20);
+	color: white;
+}
+
+.form button:hover{
+	background-color: gray;
+}
+
+.form button:active{
+	transform: translateY(4px);
+}
+
+.switch button{
+	border: none;
+	background-color: rgba(0,0,0,0);
+	font-size: 15px;
+	color: white;
+}
+

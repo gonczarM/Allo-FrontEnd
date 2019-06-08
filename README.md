@@ -34,8 +34,3 @@ User can see when another user is typing<br/>
 User can create an account a/o login in with different accounts<br/>
 Users can send emojis to each other<br/>
 User can opt-in for better accessibility giving them access for all received messages to be converted into speech<br/>
-
-				First Name<input type='text' onChange={e => setFirstName(e.target.value)}/><br/>
-				Last Name<input type='text' onChange={e => setLastName(e.target.value)}/><br/>
-				Location<input type='text' onChange={e => setLocation(e.target.value)}/><br/>
-				About<input type='text' onChange={e => setAbout(e.target.value)}/><br/>
