@@ -20,11 +20,11 @@ class AuthGateway extends Component{
 		return(
 			<div>
 				{ this.state.login ?
-					<Register handleRegister={this.props.handleRegister} toggleLogin={this.toggleLogin}>
-					</Register>
-					:
 					<Login handleLogin={this.props.handleLogin} toggleLogin={this.toggleLogin}>
 					</Login>
+					:
+					<Register handleRegister={this.props.handleRegister} toggleLogin={this.toggleLogin}>
+					</Register>
 				}
 			</div>
 		)

@@ -1,8 +1,8 @@
 body{
 	background:
 		linear-gradient(
-    	rgba(0, 191, 255, .3),
-    	rgba(30, 50, 200, .6)
+    	rgba(0, 191, 255, .8),
+    	rgba(0, 0, 100, .7)
 		),
 		url(../Images/chicago.jpg); 
 	background-repeat: no-repeat;
