@@ -1,59 +1,43 @@
-body{
-	background:
-		linear-gradient(
-    	rgba(0, 191, 255, .8),
-    	rgba(0, 0, 100, .7)
-		),
-		url(../Images/chicago.jpg); 
-	background-repeat: no-repeat;
-	background-size: cover;
-  background-position: center;
-}
-
-img{
+.login img{
 	height: 400px;
 	display: block;
 	margin: 0 auto;
 }
 
-.form{
+.login .form{
 	margin: 0 auto;
 	margin-bottom: 30px;
-	width: 400px;
-	padding: 20px 0;
-	border-radius: 10px;
 }
 
-.form input, .form select, .form button, .form option{
+.login .form input, .login .form select, .login .form button{
 	display: block;
 	margin: 10px auto;
-	border-radius: 10px;
+	border-radius: 20px;
 	text-align: center;
 	border: none;
 	padding: 7px 50px;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.5);
 }
 
-.switch{
+.login .switch{
 	text-align: center;
 	margin-bottom: 50px;
-	color: white;
 }
 
-.form button{
+.login .form button{
 	background-color: rgb(20,20,20);
 	color: white;
 }
 
-.form button:hover{
+.login .form button:hover{
 	background-color: gray;
 }
 
-.form button:active{
-	transform: translateY(4px);
+.login .form button:active{
+	transform: translateY(5px);
 }
 
-.switch button{
+.login .switch button{
 	border: none;
 	background-color: rgba(0,0,0,0);
 	font-size: 15px;

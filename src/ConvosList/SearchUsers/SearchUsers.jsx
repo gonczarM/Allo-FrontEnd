@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from '../../Images/search.png'
 
 class SearchUsers extends React.Component {
 	constructor(){
@@ -50,9 +51,8 @@ class SearchUsers extends React.Component {
 				event.preventDefault()
 				this.search()
 				}}>
-					<p>Search for user by username</p>
-					<input type='text' name='username' onChange={this.updateSearch}/><br/>
-					<button>Search</button>
+					<input type='text' name='username' placeholder='Search by username' onChange={this.updateSearch}/>
+					<button className='search' ><img src={Search} alt='search users'/></button>
 				</form>
 				<button onClick={this.createConvo}>{this.state.foundUser}</button>
 			</div>

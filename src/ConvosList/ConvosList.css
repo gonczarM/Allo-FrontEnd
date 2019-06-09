@@ -1,0 +1,76 @@
+*{
+	padding: 0;
+}
+
+.controls{
+	display: inline-block;
+	border: solid gray 1px;
+}
+
+.convosList{
+	/*display: flex;
+  	flex-direction: column;*/
+}
+
+.convosList h2{
+	display: inline-block;
+}
+
+.list{
+	display: inline-block;
+	border: solid gray 1px;
+	/*flex: 1;*/
+}
+
+.settings img, .create img{
+	height: 40px;
+}
+
+.settings img, .create img{
+	margin: 5px;
+	margin-bottom: 15px;
+}
+
+.search img{
+	height: 30px;
+}
+
+.settings, .create, .search{
+	border: none;
+}
+
+.logo{
+	margin: 0 31px;
+	height: 75px;
+}
+
+.convos li{
+	text-align: center;
+	list-style: none;
+}
+
+ul button{
+	width: 100%;
+	border: none;
+	font-size: 20px;
+	padding: 20px 0;
+}
+
+ul button:hover{
+	background-color: lightgray; 
+}
+
+.searchConvo{
+	margin: 5px 0; 
+}
+
+.searchConvo input{
+	text-align: center;
+	margin-left: 5px;
+	border-radius: 5px;
+	width: 150px;
+	background-color: lightgray;
+	border: none;
+	padding: 7px 22px;
+}
+

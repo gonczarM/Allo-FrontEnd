@@ -1,5 +1,10 @@
 import React from 'react';
 import SearchUsers from './SearchUsers/SearchUsers'
+import './ConvosList.css'
+import Logo from '../Images/smallLogo.png'
+import Setting from '../Images/setting.png'
+import StartConvo from '../Images/startConvo.png'
+import Search from '../Images/search.png'
 
 class ConvosList extends React.Component {
 	constructor(){
@@ -38,13 +43,30 @@ class ConvosList extends React.Component {
 	render(){
 		console.log(this.props);
 		console.log(this.state);
-		const convos = this.state.conversations.map((convo) => {
-			return <button key={convo._id} onClick={this.props.convoToShow.bind(null, convo._id)}> {convo.users[0].username} {convo.users[1].username}</button>
-		})
+		const convos = this.state.conversations.map((convo) => 
+			<li key={convo._id}>
+				<button onClick={this.props.convoToShow.bind(null, convo._id)}>{convo.users[0].username} {convo.users[1].username}</button><br/>
+			</li>
+		)
 		return(
-			<div>
-				<button onClick={this.createConvo}>Create conversation</button><br/>
-				{convos}
+			<div className='convosList'>
+				<div className='controls'>
+					<button className='settings'><img src={Setting} alt='settings'/></button>
+						<img className='logo' src={Logo} alt='logo'/>
+					<button className='create' onClick={this.createConvo}><img src={StartConvo} alt="StartConvo"/></button><br/>
+				</div>
+				<div>
+					<h2>Username</h2>
+				</div>
+				<div className='list'>
+					<form className='searchConvo'>
+						<input type='text' placeholder='Search Conversations'/>
+						<button className='search' ><img src={Search} alt='search users'/></button>
+					</form>
+					<ul className='convos'>
+						{convos}
+					</ul>
+				</div>
 				{this.state.showCreateConvo ?
 					<SearchUsers/>
 					:

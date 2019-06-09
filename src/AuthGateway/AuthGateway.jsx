@@ -10,6 +10,14 @@ class AuthGateway extends Component{
 		}
 	}
 
+	componentDidMount(){
+		document.body.style.background = "linear-gradient(rgba(0, 191, 255, .8), rgba(0, 0, 100, .7))";
+	}
+
+	componentWillUnmount(){
+		document.body.style.background = null;
+	}
+
 	toggleLogin = (event) => {
 		this.setState({
 			login: !this.state.login

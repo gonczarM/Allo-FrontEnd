@@ -8,7 +8,7 @@ function Register({toggleLogin, handleRegister}){
 	const [language, setLanguage] = useState(null)
 	const [location, setLocation] = useState(null)
 	return(
-		<div>
+		<div className='login'>
 			<img src={Logo} alt='allo logo'/>
 			<form className='form' onSubmit={(event) => {
 				event.preventDefault()

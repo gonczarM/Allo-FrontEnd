@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../AuthGateway.css'
 import Logo from '../../Images/logo.png'
 
 function Login({toggleLogin, handleLogin}){
@@ -6,7 +7,7 @@ function Login({toggleLogin, handleLogin}){
 	const [password, setPassword] = useState(null)
 
 	return(
-		<div>
+		<div className='login'>
 			<img src={Logo} alt='allo logo'/>
 			<form className='form' onSubmit={(event) => {
 				event.preventDefault()
