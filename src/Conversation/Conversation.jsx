@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import NewMessage from './NewMessage/NewMessage'
 import openSocket from 'socket.io-client'
-export const socket = openSocket(process.env.REACT_APP_BACKEND_URL)
+import './Conversation.css'
+export const socket = openSocket(process.env.REACT_APP_BACKEND_URL);
 
 class Conversation extends Component{
 	constructor(){
@@ -80,13 +81,21 @@ class Conversation extends Component{
 	render(){
 		console.log(this.props.convoId);
 		console.log(this.state.messages, 'state');
-		const chat = this.state.messages.map((message) => {
-			return <p key={message._id}>{message.text} {message.translatedText}</p>
-		})
+		const chat = this.state.messages.map((message) => 
+			<li key={message._id}>
+				<div className='username' >
+					<span>{message.user[0].username}</span>
+				</div>
+				<p className='text' >{message.text}</p>
+				<p className='translated' >{message.translatedText}</p>
+			</li>
+		)
 		return(
-			<div>
-				{chat}
-				<NewMessage createMessage={this.createMessage}></NewMessage>
+			<div className='chat'>
+				<ul>
+					{chat}
+				</ul>
+				<NewMessage createMessage={this.createMessage}/>
 			</div>
 		)
 	}

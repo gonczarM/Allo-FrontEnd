@@ -2,12 +2,11 @@ import React, {useState} from 'react'
 
 const NewMessage = ({createMessage}) => {
 	const [text, setText] = useState("")
-	return <form onSubmit={(e) => {
+	return <form className='message' onSubmit={(e) => {
 		e.preventDefault()
 		createMessage({text})
 	}}>
-		<input type='textarea' onChange={e => setText(e.target.value)}/>
-		<button>Send</button>
+		<input type='textarea' placeholder='type a message' onChange={e => setText(e.target.value)}/>
 	</form>
 }
 

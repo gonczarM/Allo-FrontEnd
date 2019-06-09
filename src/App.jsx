@@ -2,6 +2,7 @@ import React from 'react';
 import AuthGateway from './AuthGateway/AuthGateway'
 import Conversation from './Conversation/Conversation'
 import ConvosList from './ConvosList/ConvosList'
+import './App.css'
 
 class App extends React.Component {
 	constructor(){

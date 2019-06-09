@@ -8,8 +8,8 @@
 }
 
 .convosList{
-	/*display: flex;
-  	flex-direction: column;*/
+	display: inline-block;
+	height: 100%;
 }
 
 .convosList h2{
@@ -19,7 +19,6 @@
 .list{
 	display: inline-block;
 	border: solid gray 1px;
-	/*flex: 1;*/
 }
 
 .settings img, .create img{
@@ -33,6 +32,7 @@
 
 .search img{
 	height: 30px;
+	margin-right: 5px;
 }
 
 .settings, .create, .search{
@@ -66,7 +66,7 @@ ul button:hover{
 
 .searchConvo input{
 	text-align: center;
-	margin-left: 5px;
+	margin: 0 5px;
 	border-radius: 5px;
 	width: 150px;
 	background-color: lightgray;

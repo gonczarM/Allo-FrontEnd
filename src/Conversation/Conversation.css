@@ -1,0 +1,40 @@
+.message input{
+	width: 100%;
+	padding: 5px 5px;
+	font-size: 15px;
+}
+
+.chat{
+	border: solid gray 1px;
+	width: 75%;
+	display: inline-block;
+}
+
+.chat p, .chat span{
+	margin: 10px 5px;
+	padding: 10px;
+	border-radius: 5px; 
+}
+
+.chat .text, .chat .translated{
+	box-sizing: border-box;
+	word-wrap: break-word;
+	overflow: hidden;
+}
+
+.chat .text{
+	background-color: lightblue;
+}
+
+.chat .username{
+	margin-top: 30px;
+}
+
+.chat .translated{
+	background-color: rgba(205,92,92);
+}
+
+.chat li{
+	list-style: none;
+}
+
