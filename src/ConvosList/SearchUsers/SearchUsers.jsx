@@ -46,7 +46,7 @@ class SearchUsers extends React.Component {
 	render(){
 		console.log(this.state);
 		return (
-			<div>
+			<div className='searchUsers'>
 				<form onSubmit={(event) => {
 				event.preventDefault()
 				this.search()
@@ -54,7 +54,7 @@ class SearchUsers extends React.Component {
 					<input type='text' name='username' placeholder='Search by username' onChange={this.updateSearch}/>
 					<button className='search' ><img src={Search} alt='search users'/></button>
 				</form>
-				<button onClick={this.createConvo}>{this.state.foundUser}</button>
+				<button className='user' onClick={this.createConvo}>{this.state.foundUser}</button>
 			</div>
 		)
 	}

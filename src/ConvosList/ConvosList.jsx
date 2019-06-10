@@ -58,6 +58,11 @@ class ConvosList extends React.Component {
 				<div>
 					<h2>Allo! {this.props.user.username}</h2>
 				</div>
+				{this.state.showCreateConvo ?
+					<SearchUsers/>
+					:
+					null
+				}
 				<div className='list'>
 					<form className='searchConvo'>
 						<input type='text' placeholder='Search Conversations'/>
@@ -67,11 +72,6 @@ class ConvosList extends React.Component {
 						{convos}
 					</ul>
 				</div>
-				{this.state.showCreateConvo ?
-					<SearchUsers/>
-					:
-					null
-				}
 			</div>
 		)
 	}

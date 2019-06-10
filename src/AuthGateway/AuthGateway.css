@@ -1,7 +1,8 @@
 .login img{
-	height: 400px;
+	height: 200px;
 	display: block;
-	margin: 0 auto;
+	margin: 50px auto;
+	margin-bottom: 100px 
 }
 
 .login .form{
