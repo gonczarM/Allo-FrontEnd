@@ -17,10 +17,14 @@
 	position: relative;
 }
 
-.chat p, .chat span{
+.chat p{
 	margin: 10px 5px;
 	padding: 10px;
-	border-radius: 5px; 
+	border-radius: 5px;
+}
+
+.chat span{
+	margin-left: 10px;
 }
 
 .chat .text, .chat .translated{
@@ -29,6 +33,7 @@
 
 .chat .text{
 	background-color: lightblue;
+	margin-top: 5px; 
 }
 
 .chat .username{

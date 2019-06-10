@@ -52,7 +52,7 @@ class ConvosList extends React.Component {
 		console.log(this.state);
 		const convos = this.state.conversations.map((convo) => 
 			<li key={convo._id}>
-				<button onClick={this.props.convoToShow.bind(null, convo._id)}>{convo.users[0].username} {convo.users[1].username}</button><br/>
+				<button onClick={this.props.convoToShow.bind(null, convo._id)}>{convo.users[0].username}</button><br/>
 			</li>
 		)
 		return(

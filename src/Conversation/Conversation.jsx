@@ -84,7 +84,7 @@ class Conversation extends Component{
 		console.log(this.state.messages, 'state');
 		const chat = this.state.messages.map((message) => 
 			<li key={message._id}>
-				<p className='username'>{message.user[0].username}</p>
+				<span className='username'>{message.user[0].username}</span>
 				<p className='text' >{message.text}</p>
 				<p className='translated' >{message.translatedText}</p>
 			</li>
