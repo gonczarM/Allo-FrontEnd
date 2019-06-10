@@ -1,31 +1,28 @@
-*{
-	padding: 0;
-}
-
 .controls{
-	display: inline-block;
 	border: solid gray 1px;
+	background-color: rgb(230,230,230);
+	border-radius: 5px;
 }
 
 .convosList{
 	display: inline-block;
-	height: 100%;
+	position: fixed;
+	overflow: scroll;
 }
 
 .convosList h2{
-	display: inline-block;
+	width: 100%;
+	text-align: center;
 }
 
 .list{
-	display: inline-block;
 	border: solid gray 1px;
+	background-color: rgb(230,230,230);
+	border-radius: 5px;
 }
 
 .settings img, .create img{
 	height: 40px;
-}
-
-.settings img, .create img{
 	margin: 5px;
 	margin-bottom: 15px;
 }
@@ -37,15 +34,15 @@
 
 .settings, .create, .search{
 	border: none;
+	background-color: rgb(230,230,230);
 }
 
 .logo{
-	margin: 0 31px;
+	margin: 0 32px;
 	height: 75px;
 }
 
 .convos li{
-	text-align: center;
 	list-style: none;
 }
 
@@ -54,10 +51,11 @@ ul button{
 	border: none;
 	font-size: 20px;
 	padding: 20px 0;
+	background-color: rgb(230,230,230);
 }
 
 ul button:hover{
-	background-color: lightgray; 
+	background-color: gray; 
 }
 
 .searchConvo{
@@ -69,8 +67,14 @@ ul button:hover{
 	margin: 0 5px;
 	border-radius: 5px;
 	width: 150px;
-	background-color: lightgray;
+	background-color: gray;
 	border: none;
 	padding: 7px 22px;
+	font-size: 15px;
+	color: black;
+}
+
+.searchConvo ::placeholder{
+	color: rgb(20,20,20);
 }
 

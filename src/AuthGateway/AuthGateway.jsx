@@ -15,7 +15,7 @@ class AuthGateway extends Component{
 	}
 
 	componentWillUnmount(){
-		document.body.style.background = null;
+		// document.body.style.background = null;
 	}
 
 	toggleLogin = (event) => {

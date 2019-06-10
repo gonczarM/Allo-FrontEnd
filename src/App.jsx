@@ -10,7 +10,8 @@ class App extends React.Component {
 		this.state = {
 			convoId: '',
 			showConvo: false,
-			loggedIn: false
+			loggedIn: false,
+			user: {}
 		}
 	}
 
@@ -29,7 +30,8 @@ class App extends React.Component {
 		console.log(parsedResponse);
 		if(parsedResponse.status === 200){
 			this.setState({
-				loggedIn: true
+				loggedIn: true,
+				user: parsedResponse.user
 			})
 		}
 	}
@@ -48,7 +50,8 @@ class App extends React.Component {
 		console.log(parsedResponse);
 		if(parsedResponse.status === 200){
 			this.setState({
-				loggedIn: true
+				loggedIn: true,
+				user: parsedResponse.user
 			})
 		}
 	}
@@ -67,7 +70,7 @@ class App extends React.Component {
 	}
 
 	render(){
-		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)} userSearch={this.userSearch.bind(this)}/>
+		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)} userSearch={this.userSearch.bind(this)} user={this.state.user}/>
 		let convo;
 		let auth;
 		if(!this.state.loggedIn){

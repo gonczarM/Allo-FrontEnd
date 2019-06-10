@@ -2,12 +2,19 @@
 	width: 100%;
 	padding: 5px 5px;
 	font-size: 15px;
+	position: absolute;
+	bottom: 0px;
+	margin-top: 5px;
 }
 
 .chat{
 	border: solid gray 1px;
 	width: 75%;
-	display: inline-block;
+	margin-left: 241px;
+	background-color: rgb(230,230,230);
+	border-radius: 5px;
+	min-height: 551px;
+	position: relative;
 }
 
 .chat p, .chat span{
@@ -17,21 +24,16 @@
 }
 
 .chat .text, .chat .translated{
-	box-sizing: border-box;
 	word-wrap: break-word;
-	overflow: hidden;
 }
 
 .chat .text{
 	background-color: lightblue;
 }
 
-.chat .username{
-	margin-top: 30px;
-}
-
 .chat .translated{
 	background-color: rgba(205,92,92);
+	margin-bottom: 40px; 
 }
 
 .chat li{

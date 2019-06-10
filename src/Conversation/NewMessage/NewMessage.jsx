@@ -8,7 +8,6 @@ const NewMessage = ({createMessage}) => {
 		createMessage({text})
 		setText("")
 		document.getElementById('message').reset()
-
 	}}>
 		<input type='textarea' placeholder='type a message' onChange={e => setText(e.target.value)}/>
 	</form>

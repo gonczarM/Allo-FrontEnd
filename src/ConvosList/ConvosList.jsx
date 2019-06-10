@@ -56,7 +56,7 @@ class ConvosList extends React.Component {
 					<button className='create' onClick={this.createConvo}><img src={StartConvo} alt="StartConvo"/></button><br/>
 				</div>
 				<div>
-					<h2>Username</h2>
+					<h2>Allo! {this.props.user.username}</h2>
 				</div>
 				<div className='list'>
 					<form className='searchConvo'>
