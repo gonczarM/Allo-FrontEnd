@@ -3,7 +3,7 @@ import AuthGateway from './AuthGateway/AuthGateway'
 import Conversation from './Conversation/Conversation'
 import ConvosList from './ConvosList/ConvosList'
 import './App.css'
-import CurrentUser from './CurrentUser/CurrentUser'
+import CurrentUser from './ConvosList/CurrentUser/CurrentUser'
 
 class App extends React.Component {
 	constructor(){
