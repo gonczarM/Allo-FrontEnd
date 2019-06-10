@@ -34,6 +34,7 @@ class SearchUsers extends React.Component {
 		console.log(convoResponse);
 		const parsedResponse = await convoResponse.json()
 		if(parsedResponse.status === 200){
+			this.props.hideSearchUser()
 		}
 	}
 

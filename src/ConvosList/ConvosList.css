@@ -59,6 +59,10 @@ ul button:hover{
 	background-color: gray; 
 }
 
+ul button:focus{
+	background-color: gray; 
+}
+
 .searchConvo{
 	margin: 5px 0; 
 }

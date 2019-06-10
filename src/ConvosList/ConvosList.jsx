@@ -40,6 +40,13 @@ class ConvosList extends React.Component {
 		})
 	}
 
+	hideSearchUser = () => {
+		this.setState({
+			showCreateConvo: false
+		})
+		this.getConvos()
+	}
+
 	render(){
 		console.log(this.props);
 		console.log(this.state);
@@ -59,7 +66,7 @@ class ConvosList extends React.Component {
 					<h2>Allo! {this.props.user.username}</h2>
 				</div>
 				{this.state.showCreateConvo ?
-					<SearchUsers/>
+					<SearchUsers hideSearchUser={this.hideSearchUser}/>
 					:
 					null
 				}
