@@ -32,9 +32,10 @@ class Conversation extends Component{
 		this.getMessages()
 		socket.on('messages', (msg) => {
 			console.log('messages reiceved from server');
-			this.setState({
-				messages: msg
-			})
+			// this.setState({
+			// 	messages: msg
+			// })
+			this.getMessages()
 		})
 	}
 
@@ -83,9 +84,7 @@ class Conversation extends Component{
 		console.log(this.state.messages, 'state');
 		const chat = this.state.messages.map((message) => 
 			<li key={message._id}>
-				<div className='username' >
-					<span>{message.user[0].username}</span>
-				</div>
+				<p className='username'>{message.user[0].username}</p>
 				<p className='text' >{message.text}</p>
 				<p className='translated' >{message.translatedText}</p>
 			</li>

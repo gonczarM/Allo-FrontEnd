@@ -10,7 +10,7 @@
 .chat{
 	border: solid gray 1px;
 	width: 75%;
-	margin-left: 241px;
+	margin-left: 250px;
 	background-color: rgb(230,230,230);
 	border-radius: 5px;
 	min-height: 551px;
@@ -29,6 +29,10 @@
 
 .chat .text{
 	background-color: lightblue;
+}
+
+.chat .username{
+	color: gray;
 }
 
 .chat .translated{

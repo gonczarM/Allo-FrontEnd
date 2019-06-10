@@ -3,6 +3,7 @@ import AuthGateway from './AuthGateway/AuthGateway'
 import Conversation from './Conversation/Conversation'
 import ConvosList from './ConvosList/ConvosList'
 import './App.css'
+import CurrentUser from './CurrentUser/CurrentUser'
 
 class App extends React.Component {
 	constructor(){
@@ -11,7 +12,8 @@ class App extends React.Component {
 			convoId: '',
 			showConvo: false,
 			loggedIn: false,
-			user: {}
+			user: {},
+			showUserInfo: false
 		}
 	}
 
@@ -69,10 +71,22 @@ class App extends React.Component {
 		})
 	}
 
+	showUser(){
+		this.setState({
+			showUserInfo: true
+		})
+	}
+
 	render(){
-		let conversationList = <ConvosList convoToShow={this.convoToShow.bind(this)} userSearch={this.userSearch.bind(this)} user={this.state.user}/>
+		let conversationList = <ConvosList 
+			convoToShow={this.convoToShow.bind(this)} 
+			userSearch={this.userSearch.bind(this)} 
+			user={this.state.user}
+			showUser={this.showUser.bind(this)}
+		/>
 		let convo;
 		let auth;
+		let user;
 		if(!this.state.loggedIn){
 			convo = ''
 			conversationList = ''
@@ -85,11 +99,18 @@ class App extends React.Component {
 			auth = ''
 			convo = <Conversation convoId={this.state.convoId}/>
 		}
+		else if(this.state.showUserInfo){
+			auth = ''
+			convo = ''
+			conversationList = ''
+			user = <CurrentUser/>
+		}
 	  return (
 	    <div className="App">
 	    	{conversationList}
 	    	{convo}
 	    	{auth}
+	    	{user}
 	    </div>
 	  );
 	}
