@@ -11,6 +11,7 @@ class SearchUsers extends React.Component {
 		}
 	}
 
+	// search through users to create convo
 	search = async () => {
 		const userResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/users/search/${this.state.username}`, {
 			'credentials': 'include'
@@ -26,7 +27,8 @@ class SearchUsers extends React.Component {
 		}
 	}
 
-	createConvo = async() => {
+	// create conversation route
+	createConvo = async () => {
 		const convoResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/convos/${this.state.username}`, {
 			method: "POST",
 			credentials: "include"

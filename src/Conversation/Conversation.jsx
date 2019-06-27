@@ -13,6 +13,7 @@ class Conversation extends Component{
 		}
 	}
 
+	// this checks convo id and will have it changed
 	static getDerivedStateFromProps(nextProps, prevState){
 		if(nextProps.convoId!==prevState.convoId){
 	     	return { convoId: nextProps.convoId};
@@ -20,25 +21,25 @@ class Conversation extends Component{
 	  	else return null;
 	}
 
+	// if the convo is changed updated the messages
 	componentDidUpdate(prevProps){
 		if(prevProps.convoId!==this.props.convoId){
 			let convoId = this.state.convoId
 	    this.setState({convoId});
 	    this.getMessages();
-  	}
+  		}
 	}
 
+	// socket.io, updates messages for both users in real time
 	componentDidMount(){
 		this.getMessages()
 		socket.on('messages', (msg) => {
 			console.log('messages reiceved from server');
-			// this.setState({
-			// 	messages: msg
-			// })
 			this.getMessages()
 		})
 	}
 
+	// pulls all messages from conversation
 	getMessages = async () => {
 		const messagesResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/convos/convo/${this.state.convoId}`, {
 			credentials: 'include'
@@ -53,14 +54,11 @@ class Conversation extends Component{
 		}
 	}
 
-	sendSocket(){
-		socket.emit('messages', this.state.messages);
-		console.log('sending messages from client');
-	}
-
+	// creates a message route
 	createMessage = async (formData) => {
 		console.log(formData);
-		const messageResponse = await fetch(process.env.REACT_APP_BACKEND_URL + `/messages/${this.state.convoId}`, {
+		const messageResponse = await 
+		fetch(process.env.REACT_APP_BACKEND_URL + `/messages/${this.state.convoId}`, {
 			method: "POST",
 			credentials: "include",
 			body: JSON.stringify(formData),
@@ -77,6 +75,11 @@ class Conversation extends Component{
 			})
 		}
 		this.sendSocket()
+	}
+
+	sendSocket(){
+		socket.emit('messages', this.state.messages);
+		console.log('sending messages from client');
 	}
 
 	render(){

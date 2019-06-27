@@ -19,6 +19,7 @@ class ConvosList extends React.Component {
 		this.getConvos()
 	}
 
+	// list of convos for logged in user route
 	getConvos = async () => {
 		const convosResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/convos/current', {
 			credentials: 'include'

@@ -12,6 +12,7 @@ class CurrentUser extends React.Component {
 		this.getUserInfo()
 	}
 
+	// current users info route
 	getUserInfo = async () => {
 		const userResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/users/current',{
 			credentials: 'include'

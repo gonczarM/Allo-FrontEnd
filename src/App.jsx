@@ -17,6 +17,7 @@ class App extends React.Component {
 		}
 	}
 
+	// register route
 	handleRegister = async (formData) => {
 		console.log(formData);
 		const registerResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/users/register', {
@@ -38,6 +39,7 @@ class App extends React.Component {
 		}
 	}
 
+	//login route
 	handleLogin = async (formData) => {
 		const loginResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/users/login', {
 			method: "POST",
