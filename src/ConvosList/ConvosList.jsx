@@ -5,18 +5,25 @@ import Logo from '../Images/smallLogo.png'
 import Setting from '../Images/setting.png'
 import StartConvo from '../Images/startConvo.png'
 import Search from '../Images/search.png'
+import CurrentUser from './CurrentUser/CurrentUser'
+import openSocket from 'socket.io-client'
+export const socket = openSocket(process.env.REACT_APP_BACKEND_URL);
 
 class ConvosList extends React.Component {
 	constructor(){
 		super()
 		this.state = {
 			conversations: [],
-			showCreateConvo: false
+			showCreateConvo: false,
+			showSettings: false
 		}
 	}
 
 	componentDidMount(){
 		this.getConvos()
+		socket.on('conversations', (convo) => {
+			this.getConvos()
+		})
 	}
 
 	// list of convos for logged in user route
@@ -41,11 +48,23 @@ class ConvosList extends React.Component {
 		})
 	}
 
+	userSettings = () => {
+		this.setState({
+			showSettings: true
+		})
+	}
+
 	hideSearchUser = () => {
 		this.setState({
 			showCreateConvo: false
 		})
 		this.getConvos()
+	}
+
+	hideSettings = () => {
+		this.setState({
+			showSettings: false
+		})
 	}
 
 	render(){
@@ -57,28 +76,33 @@ class ConvosList extends React.Component {
 			</li>
 		)
 		return(
-			<div className='convosList'>
-				<div className='controls'>
-					<button className='settings'><img src={Setting} alt='settings'/></button>
-						<img className='logo' src={Logo} alt='logo'/>
-					<button className='create' onClick={this.createConvo}><img src={StartConvo} alt="StartConvo"/></button><br/>
+			<div>
+				<div className='convosList'>
+					<div className='controls'>
+						<button className='settings' onClick={this.userSettings}><img src={Setting} alt='settings'/></button>
+							<img className='logo' src={Logo} alt='logo'/>
+						<button className='create' onClick={this.createConvo}><img src={StartConvo} alt="StartConvo"/></button><br/>
+					</div>
+					<div>
+						<h2>Allo! {this.props.user.username}</h2>
+					</div>
+					{this.state.showCreateConvo ?
+						<SearchUsers hideSearchUser={this.hideSearchUser}/>
+						:
+						null
+					}
+					<div className='list'>
+						<ul className='convos'>
+							{convos}
+						</ul>
+					</div>
 				</div>
-				<div>
-					<h2>Allo! {this.props.user.username}</h2>
-				</div>
-				{this.state.showCreateConvo ?
-					<SearchUsers hideSearchUser={this.hideSearchUser}/>
-					:
-					null
-				}
-				<div className='list'>
-					<form className='searchConvo'>
-						<input type='text' placeholder='Search Conversations'/>
-						<button className='search' ><img src={Search} alt='search users'/></button>
-					</form>
-					<ul className='convos'>
-						{convos}
-					</ul>
+				<div className='settings'>
+					{this.state.showSettings ?
+						<CurrentUser hideSettings={this.hideSettings}/>
+						:
+						null
+					}
 				</div>
 			</div>
 		)

@@ -15,6 +15,7 @@
 	border-radius: 5px;
 	min-height: 551px;
 	position: relative;
+	overflow-x: hidden;
 }
 
 .chat p{

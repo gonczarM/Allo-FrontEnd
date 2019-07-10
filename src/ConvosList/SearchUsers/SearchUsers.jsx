@@ -1,5 +1,7 @@
 import React from 'react';
 import Search from '../../Images/search.png'
+import openSocket from 'socket.io-client'
+export const socket = openSocket(process.env.REACT_APP_BACKEND_URL);
 
 class SearchUsers extends React.Component {
 	constructor(){
@@ -37,7 +39,12 @@ class SearchUsers extends React.Component {
 		const parsedResponse = await convoResponse.json()
 		if(parsedResponse.status === 200){
 			this.props.hideSearchUser()
+			this.sendSocket()
 		}
+	}
+
+	sendSocket(){
+		socket.emit('conversations', this.state.username);
 	}
 
 	updateSearch = (event) => {

@@ -41,6 +41,7 @@ class App extends React.Component {
 
 	//login route
 	handleLogin = async (formData) => {
+		console.log(formData);
 		const loginResponse = await fetch(process.env.REACT_APP_BACKEND_URL + '/users/login', {
 			method: "POST",
 			body: JSON.stringify(formData),

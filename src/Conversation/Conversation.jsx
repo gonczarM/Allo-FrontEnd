@@ -52,6 +52,7 @@ class Conversation extends Component{
 				messages: parsedResponse.convo.messages
 			})
 		}
+		this.scrollToBottom()
 	}
 
 	// creates a message route
@@ -80,6 +81,16 @@ class Conversation extends Component{
 	sendSocket(){
 		socket.emit('messages', this.state.messages);
 		console.log('sending messages from client');
+	}
+
+	scrollToBottom(){
+		const div = document.body;
+		console.log(div);
+		console.log(div.scrollHeight);
+		console.log(div.scrollTop);
+		div.scrollTop = div.scrollHeight;
+		console.log(div.scrollHeight);
+		console.log(div.scrollTop);
 	}
 
 	render(){
